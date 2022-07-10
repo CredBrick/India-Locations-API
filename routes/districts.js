@@ -16,9 +16,11 @@ router.get("/state", (req, res) => {
     .send();
 });
 
-router.get("/district_list/:state", (req, res) => {
+router.post("/district_list", (req, res) => {
+    const { state } = req.body
+    
     data.states.map((obj,i) => {
-        if(req.params.state === obj.state){
+        if(req.params.state === state){
             res.json({
                 districts: obj.districts
             })
