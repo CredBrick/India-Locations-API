@@ -19,8 +19,8 @@ router.get("/state", (req, res) => {
 router.post("/district_list", (req, res) => {
     const { state } = req.body
     
-    data.states.map((obj,i) => {
-        if(req.params.state === state){
+    data.states.forEach((obj,i) => {
+        if(state === obj.state){
             res.json({
                 districts: obj.districts
             })
